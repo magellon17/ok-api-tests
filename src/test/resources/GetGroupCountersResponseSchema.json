@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["counters"],
+  "properties": {
+    "counters": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties":{
+        "ads_topics": {
+          "type": "integer"
+        },
+        "black_list": {
+          "type": "integer"
+        },
+        "catalogs": {
+          "type": "integer"
+        },
+        "delayed_topics": {
+          "type": "integer"
+        },
+        "friends": {
+          "type": "integer"
+        },
+        "join_requests": {
+          "type": "integer"
+        },
+        "links": {
+          "type": "integer"
+        },
+        "maybe": {
+          "type": "integer"
+        },
+        "members": {
+          "type": "integer"
+        },
+        "moderators": {
+          "type": "integer"
+        },
+        "music_tracks": {
+          "type": "integer"
+        },
+        "new_paid_topics": {
+          "type": "integer"
+        },
+        "own_products": {
+          "type": "integer"
+        },
+        "paid_members": {
+          "type": "integer"
+        },
+        "paid_topics": {
+          "type": "integer"
+        },
+        "photo_albums": {
+          "type": "integer"
+        },
+        "photos": {
+          "type": "integer"
+        },
+        "pinned_topics": {
+          "type": "integer"
+        },
+        "presents": {
+          "type": "integer"
+        },
+        "products": {
+          "type": "integer"
+        },
+        "promo_on_moderation": {
+          "type": "integer"
+        },
+        "suggested_products": {
+          "type": "integer"
+        },
+        "suggested_topics": {
+          "type": "integer"
+        },
+        "themes": {
+          "type": "integer"
+        },
+        "unpublished_topics": {
+          "type": "integer"
+        },
+        "videos": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
