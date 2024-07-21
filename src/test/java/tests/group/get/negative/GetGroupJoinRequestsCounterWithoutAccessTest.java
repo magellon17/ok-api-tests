@@ -16,15 +16,16 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
-public class GetGroupJoinRequestsCounterWithoutNecessaryRightsTest extends ApiTest {
+public class GetGroupJoinRequestsCounterWithoutAccessTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetGroupJoinRequestsCounterWithoutNecessaryRightsTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetGroupJoinRequestsCounterWithoutAccessTest.class);
 
     private static final String GROUP_ID = "54051835543681";
 
     @Test
-    @Tag("GET")
-    public void getGroupJoinRequestsCounterWithoutNecessaryRightsTest() {
+    @Tag("group")
+    @Tag("negative")
+    public void getGroupJoinRequestsCounterWithoutAccessTest() {
         log.info("Отправляем GET запрос на получение показателя join_requests, не имея необходимых прав");
         Map<String, Object> groupCounters = given()
                 .spec(requestSpec(BASE_URL))

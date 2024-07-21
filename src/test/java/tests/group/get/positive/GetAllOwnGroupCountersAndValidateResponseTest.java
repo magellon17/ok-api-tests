@@ -49,11 +49,9 @@ public class GetAllOwnGroupCountersAndValidateResponseTest extends ApiTest {
                 .get(Endpoints.getGroupCounters)
                 .then()
                 .spec(responseSpecOK200())
-                .log().all()
                 .extract().response().jsonPath().getMap("counters");
         log.info("Проверяем, что получили нужное количество счетчиков");
         assertEquals(11, groupCounters.size());
-
         log.info("Проверяем, что тело ответа содержит каждый запрошенный счетчик");
         assertTrue(Arrays.stream(
                         ALL_GROUP_COUNTERS.split(", "))

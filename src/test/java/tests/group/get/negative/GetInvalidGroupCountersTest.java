@@ -19,9 +19,9 @@ public class GetInvalidGroupCountersTest extends ApiTest {
 
     private static final String INVALID_GROUP_ID = "70000006977222";
 
-    @Tag("GET")
     @Test
-    // Название могут быть лучше, над ними не успел подумать
+    @Tag("group")
+    @Tag("negative")
     public void getInvalidGroupCountersTest() {
         log.info("Получаем показатели несуществующей группы");
         ResponseError error = given()
@@ -36,7 +36,6 @@ public class GetInvalidGroupCountersTest extends ApiTest {
                 .get(Endpoints.getGroupCounters)
                 .then()
                 .spec(responseSpecOK200())
-                .log().all()
                 .extract().as(ResponseError.class);
         log.info("Проверяем, что тело ответа содержит ошибку");
         // дальше проверка, но я уже не успеваю (((((((
