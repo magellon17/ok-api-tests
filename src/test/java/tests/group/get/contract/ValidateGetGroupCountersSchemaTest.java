@@ -1,4 +1,4 @@
-package tests.get;
+package tests.group.get.contract;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -8,7 +8,6 @@ import tests.ApiTest;
 import utils.Endpoints;
 import utils.GroupMethodsUri;
 
-import static io.restassured.RestAssured.authentication;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static utils.Specifications.requestSpec;

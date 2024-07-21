@@ -1,4 +1,4 @@
-package tests.get;
+package tests.group.get.positive;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;

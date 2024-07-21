@@ -1,4 +1,4 @@
-package tests.get;
+package tests.group.get.negative;
 
 import models.ResponseError;
 import org.junit.jupiter.api.Tag;
@@ -8,8 +8,6 @@ import org.slf4j.LoggerFactory;
 import tests.ApiTest;
 import utils.Endpoints;
 import utils.GroupMethodsUri;
-
-import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static utils.Specifications.requestSpec;
