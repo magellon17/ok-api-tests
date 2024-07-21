@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Pojo класс тела ответа со счетчиками группы
+ */
 @Data
 @Builder
 @NoArgsConstructor

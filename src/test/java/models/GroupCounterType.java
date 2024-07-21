@@ -1,5 +1,8 @@
 package models;
 
+/**
+ * Основные счётчики объектов группы
+ */
 public enum GroupCounterType {
     ADS_TOPICS,
     BLACK_LIST,
