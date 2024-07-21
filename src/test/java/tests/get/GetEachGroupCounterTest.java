@@ -20,9 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
-public class GetGroupMembersCounterTest extends ApiTest {
+public class GetEachGroupCounterTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetGroupMembersCounterTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetEachGroupCounterTest.class);
 
     private static final String GROUP_ID = "70000006977225";
 
@@ -46,7 +46,10 @@ public class GetGroupMembersCounterTest extends ApiTest {
                 .spec(responseSpecOK200())
                 .log().all()
                 .extract().response().jsonPath().getMap("counters");
-        log.info("Проверяем, что тело ответа содержит только требуемый элемент");
+        log.info("Проверяем, что тело ответа содержит требуемый элемент");
         assertTrue(groupCounters.containsKey(ContentType.toLowerCase()));
+
+        log.info("Проверяем, что тело ответа содержит только требуемый элемент");
+        assertEquals(1, groupCounters.size());
     }
 }
