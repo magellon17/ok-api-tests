@@ -1,5 +1,6 @@
 package tests.group.get.positive;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -12,14 +13,14 @@ import utils.GroupMethodsUri;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItems;
-import static org.hamcrest.Matchers.hasSize;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
+/**
+ * Тест, который получает определенный счетчик и проверяет, что получен только он
+ */
 public class GetEachGroupCounterTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetEachGroupCounterTest.class);
@@ -27,9 +28,9 @@ public class GetEachGroupCounterTest extends ApiTest {
     private static final String GROUP_ID = "70000006977225";
 
     @Tag("GET")
+    @DisplayName("Тест, который получает определенный счетчик и проверяет, что получен только он")
     @ParameterizedTest
-    @ValueSource(strings = { "BLACK_LIST", "MEMBERS", "MODERATORS", "PHOTOS"}) // и так далее (хотел конвертировать все элементы enum'а ы массив стрингов, но пока не полулось это сдлелать)
-    // Название могут быть лучше, над ними не успел подумать
+    @ValueSource(strings = {"BLACK_LIST", "MEMBERS", "MODERATORS", "PHOTOS", "PHOTO_ALBUMS", "THEMES", "LINKS", "PRESENTS"})
     public void getEachGroupCounterTest(String ContentType) {
         log.info("Получаем показатели группы");
         Map<String, Object> groupCounters = given()
