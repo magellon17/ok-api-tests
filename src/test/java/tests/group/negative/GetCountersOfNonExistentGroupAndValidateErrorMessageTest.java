@@ -24,12 +24,13 @@ public class GetCountersOfNonExistentGroupAndValidateErrorMessageTest extends Ap
 
     private static final Logger log = LoggerFactory.getLogger(GetCountersOfNonExistentGroupAndValidateErrorMessageTest.class);
 
+    // Несуществующий ID несуществующей группы
     private static final String NON_EXISTENT_GROUP_ID = "70000006977222";
 
     @Test
     @Tag("group")
     @Tag("negative")
-    @DisplayName("Тест, который получает определенный счетчик собственной группы и проверяет, что получен только он")
+    @DisplayName("Тест, который проверяет получение ошибки при получении счетчика несуществующей группы")
     public void getCountersOfNonExistentGroupAndValidateErrorMessageTest() {
         log.info("Получаем показатели несуществующей группы");
         ResponseError error = given()
