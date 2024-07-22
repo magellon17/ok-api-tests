@@ -1,4 +1,4 @@
-package tests.group.get.positive;
+package tests.group.positive;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -19,30 +19,29 @@ import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
 /**
- * Тест, который проверяет получение всех счетчиков своей группы
+ * Тест, который проверяет получение всех публичных счетчиков чужой группы
  */
-public class GetAllOwnGroupCountersAndValidateResponseTest extends ApiTest {
+public class GetAllPublicCountersOfForeignGroupAndValidateResponseTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetAllOwnGroupCountersAndValidateResponseTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetAllPublicCountersOfForeignGroupAndValidateResponseTest.class);
 
-    private static final String OWN_GROUP_ID = "70000006977481";
+    private static final String FOREIGN_GROUP_ID = "54051835543681";
 
-    // Ничего лучше, чем записать все в строку пока не придумал
-    private static final String ALL_GROUP_COUNTERS
-            = "VIDEOS, BLACK_LIST, MAYBE, JOIN_REQUESTS, MODERATORS, MEMBERS, PHOTOS, PHOTO_ALBUMS, THEMES, LINKS, PRESENTS";
+    private static final String ALL_PUBLIC_GROUP_COUNTERS
+            = "MEMBERS, PHOTOS, PHOTO_ALBUMS, THEMES, LINKS, PRESENTS";
 
     @Test
     @Tag("group")
     @Tag("positive")
-    @DisplayName("Тест, который проверяет получение всех счетчиков своей группы")
-    public void getAllOwnGroupCountersAndValidateResponseTest() {
+    @DisplayName("Тест, который проверяет получение всех публичных счетчиков чужой группы")
+    public void getAllPublicCountersOfForeignGroupAndValidateResponseTest() {
         log.info("Получаем показатели группы");
         Map<String, Object> groupCounters = given()
                 .spec(requestSpec(BASE_URL))
                 .pathParam("application_key", APPLICATION_KEY)
-                .pathParam("counterTypes", ALL_GROUP_COUNTERS)
+                .pathParam("counterTypes", ALL_PUBLIC_GROUP_COUNTERS)
                 .pathParam("format", "json")
-                .pathParam("group_id", OWN_GROUP_ID)
+                .pathParam("group_id", FOREIGN_GROUP_ID)
                 .pathParam("method", GroupMethodsUri.getGroupCounters)
                 .pathParam("sig", SIG)
                 .pathParam("access_token", ACCESS_TOKEN)
@@ -51,10 +50,11 @@ public class GetAllOwnGroupCountersAndValidateResponseTest extends ApiTest {
                 .spec(responseSpecOK200())
                 .extract().response().jsonPath().getMap("counters");
         log.info("Проверяем, что получили нужное количество счетчиков");
-        assertEquals(11, groupCounters.size());
+        assertEquals(6, groupCounters.size());
+
         log.info("Проверяем, что тело ответа содержит каждый запрошенный счетчик");
         assertTrue(Arrays.stream(
-                        ALL_GROUP_COUNTERS.split(", "))
+                ALL_PUBLIC_GROUP_COUNTERS.split(", "))
                 .allMatch(counter -> groupCounters.containsKey(counter.toLowerCase())));
     }
 }

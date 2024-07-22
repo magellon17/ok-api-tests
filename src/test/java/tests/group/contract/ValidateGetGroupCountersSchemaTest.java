@@ -1,4 +1,4 @@
-package tests.group.get.contract;
+package tests.group.contract;
 
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -13,6 +13,9 @@ import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInC
 import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
+/**
+ * Тест, который проверяет получение всех публичных счетчиков чужой группы
+ */
 public class ValidateGetGroupCountersSchemaTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(ValidateGetGroupCountersSchemaTest.class);

@@ -1,6 +1,7 @@
-package tests.group.get.negative;
+package tests.group.negative;
 
 import models.ResponseError;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -13,15 +14,19 @@ import static io.restassured.RestAssured.given;
 import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
-public class GetInvalidGroupCountersTest extends ApiTest {
+/**
+ * Тест, который проверяет получение всех публичных счетчиков чужой группы
+ */
+public class GetCountersOfNonExistentGroupTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetInvalidGroupCountersTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetCountersOfNonExistentGroupTest.class);
 
     private static final String INVALID_GROUP_ID = "70000006977222";
 
     @Test
     @Tag("group")
     @Tag("negative")
+    @DisplayName("Тест, который получает определенный счетчик собственной группы и проверяет, что получен только он")
     public void getInvalidGroupCountersTest() {
         log.info("Получаем показатели несуществующей группы");
         ResponseError error = given()

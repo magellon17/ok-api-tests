@@ -1,4 +1,4 @@
-package tests.group.get.positive;
+package tests.group.positive;
 
 import models.GroupCounterType;
 import org.junit.jupiter.api.DisplayName;
@@ -26,9 +26,9 @@ import static utils.Specifications.responseSpecOK200;
 /**
  * Тест, который получает определенный счетчик собственной группы и проверяет, что получен только он
  */
-public class GetEachOwnGroupCounterAndValidateResponseTest extends ApiTest {
+public class GetEachCounterOfOwnGroupAndValidateResponseTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetEachOwnGroupCounterAndValidateResponseTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetEachCounterOfOwnGroupAndValidateResponseTest.class);
 
     private static final String OWN_GROUP_ID = "70000006977481";
 
@@ -37,7 +37,7 @@ public class GetEachOwnGroupCounterAndValidateResponseTest extends ApiTest {
     @DisplayName("Тест, который получает определенный счетчик собственной группы и проверяет, что получен только он")
     @ParameterizedTest
     @ArgumentsSource(EmployeesArgumentsProvider.class)
-    public void getEachGroupCounterAndValidateResponseTest(GroupCounterType ContentType) {
+    public void getEachCounterOfOwnGroupAndValidateResponseTest(GroupCounterType ContentType) {
         log.info("Получаем показатель собственной группы");
         Map<String, Object> groupCounters = given()
                 .spec(requestSpec(BASE_URL))
