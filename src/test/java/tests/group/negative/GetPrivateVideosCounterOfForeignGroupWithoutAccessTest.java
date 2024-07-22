@@ -18,35 +18,36 @@ import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
 /**
- * Тест, который проверяет неполучение счетчика moderators при отсутствии прав админа
+ * Тест, который проверяет неполучение счетчика videos, когда он скрыт в настройках группы
  */
-public class GetModeratorsCounterOfForeignGroupWithoutAccessTest extends ApiTest {
+public class GetPrivateVideosCounterOfForeignGroupWithoutAccessTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetModeratorsCounterOfForeignGroupWithoutAccessTest.class);
 
-    // ID группы, у которой скрыт счетчик moderators
-    private static final String GROUP_WITH_PRIVATE_MODERATORS_COUNTER = "70000007220905";
+    // ID группы, у которой скрыт счетчик videos
+    private static final String GROUP_WITH_PRIVATE_VIDEOS_COUNTER = "70000007219113";
 
     @Test
     @Tag("group")
     @Tag("negative")
-    @DisplayName("Тест, который проверяет неполучение счетчика moderators при отсутствии прав админа")
-    public void getModeratorsCounterOfForeignGroupWithoutAccessTest() {
-        log.info("Отправляем запрос на получение показателя moderators, не имея необходимых прав");
+    @DisplayName("Тест, который проверяет неполучение счетчика videos при отсутствии прав админа")
+    public void getVideosCounterOfForeignGroupWithoutAccessTest() {
+        log.info("Отправляем запрос на получение показателя videos, не имея необходимых прав");
         Map<String, Object> groupCounters = given()
                 .spec(requestSpec(BASE_URL))
                 .pathParam("application_key", APPLICATION_KEY)
-                .pathParam("counterTypes", GroupCounterType.MODERATORS)
+                .pathParam("counterTypes", GroupCounterType.VIDEOS)
                 .pathParam("format", "json")
-                .pathParam("group_id", GROUP_WITH_PRIVATE_MODERATORS_COUNTER)
+                .pathParam("group_id", GROUP_WITH_PRIVATE_VIDEOS_COUNTER)
                 .pathParam("method", GroupMethodsUri.getGroupCounters)
                 .pathParam("sig", SIG)
                 .pathParam("access_token", ACCESS_TOKEN)
                 .get(Endpoints.getGroupCounters)
                 .then()
                 .spec(responseSpecOK200())
+                .log().all()
                 .extract().response().jsonPath().getMap("counters");
-        log.info("Проверяем, что тело ответа не содержит moderators");
-        assertFalse(groupCounters.containsKey("moderators"));
+        log.info("Проверяем, что тело ответа не содержит videos");
+        assertFalse(groupCounters.containsKey("videos"));
     }
 }
