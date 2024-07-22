@@ -45,7 +45,6 @@ public class GetPrivateVideosCounterOfForeignGroupWithoutAccessTest extends ApiT
                 .get(Endpoints.getGroupCounters)
                 .then()
                 .spec(responseSpecOK200())
-                .log().all()
                 .extract().response().jsonPath().getMap("counters");
         log.info("Проверяем, что тело ответа не содержит videos");
         assertFalse(groupCounters.containsKey("videos"));
