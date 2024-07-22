@@ -47,6 +47,7 @@ public class GetJoinRequestsCounterOfForeignGroupWithoutAccessTest extends ApiTe
                 .spec(responseSpecOK200())
                 .extract().response().jsonPath().getMap("counters");
         log.info("Проверяем, что тело ответа не содержит join_requests");
-        assertFalse(groupCounters.containsKey("join_requests"));
+        assertFalse(groupCounters.containsKey("join_requests"),
+                "Тело ответа содержит значение join_requests");
     }
 }
