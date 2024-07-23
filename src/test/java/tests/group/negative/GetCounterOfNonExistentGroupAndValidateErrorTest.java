@@ -1,5 +1,6 @@
 package tests.group.negative;
 
+import models.ErrorCodes;
 import models.ErrorMessages;
 import models.GroupCounterType;
 import models.ResponseError;
@@ -18,11 +19,11 @@ import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
 /**
- * Тест, который проверяет получение ошибки при получении счетчика несуществующей группы
+ * Тест, который проверяет получение NOT_FOUND ошибки при получении счетчика несуществующей группы
  */
-public class GetCountersOfNonExistentGroupAndValidateErrorMessageTest extends ApiTest {
+public class GetCounterOfNonExistentGroupAndValidateErrorTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetCountersOfNonExistentGroupAndValidateErrorMessageTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetCounterOfNonExistentGroupAndValidateErrorTest.class);
 
     // Несуществующий ID несуществующей группы
     private static final String NON_EXISTENT_GROUP_ID = "70000006977222";
@@ -30,8 +31,8 @@ public class GetCountersOfNonExistentGroupAndValidateErrorMessageTest extends Ap
     @Test
     @Tag("group")
     @Tag("negative")
-    @DisplayName("Тест, который проверяет получение ошибки при получении счетчика несуществующей группы")
-    public void getCountersOfNonExistentGroupAndValidateErrorMessageTest() {
+    @DisplayName("Тест, который проверяет получение NOT_FOUND ошибки при получении счетчика несуществующей группы")
+    public void getCounterOfNonExistentGroupAndValidateErrorTest() {
         log.info("Получаем показатели несуществующей группы");
         ResponseError error = given()
                 .spec(requestSpec(BASE_URL))
@@ -46,8 +47,12 @@ public class GetCountersOfNonExistentGroupAndValidateErrorMessageTest extends Ap
                 .then()
                 .spec(responseSpecOK200())
                 .extract().as(ResponseError.class);
-        log.info("Проверяем, что тело ответа содержит правильное сообщение об ошибке");
+        log.info("Проверяем, что тело ответа содержит правильное сообщение об NOT_FOUND ошибке");
         assertEquals(ErrorMessages.NOT_FOUND.toString(), error.getError_msg(),
-                "Сообщение об NOT_FOUND ошибке не совпало с требуемым");
+                "Сообщение об ошибке не совпало с требуемым");
+
+        log.info("Проверяем, что тело ответа содержит код NOT_FOUND ошибки");
+        assertEquals(ErrorCodes.NOT_FOUND.toString(), error.getError_code(),
+                "Код ошибки не совпал с требуемым");
     }
 }
