@@ -47,7 +47,7 @@ public class GetCountersOfNonExistentGroupAndValidateErrorMessageTest extends Ap
                 .spec(responseSpecOK200())
                 .extract().as(ResponseError.class);
         log.info("Проверяем, что тело ответа содержит правильное сообщение об ошибке");
-        assertEquals(error.getError_msg(), ErrorMessages.NOT_FOUND.toString(),
+        assertEquals(ErrorMessages.NOT_FOUND.toString(), error.getError_msg(),
                 "Сообщение об NOT_FOUND ошибке не совпало с требуемым");
     }
 }
