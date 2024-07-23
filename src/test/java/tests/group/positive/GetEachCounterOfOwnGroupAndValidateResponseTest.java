@@ -35,7 +35,7 @@ public class GetEachCounterOfOwnGroupAndValidateResponseTest extends ApiTest {
     @Tag("group")
     @Tag("positive")
     @DisplayName("Тест, который получает определенный счетчик собственной группы и проверяет, что получен только он")
-    @ParameterizedTest
+    @ParameterizedTest(name = "Counter: {0}")
     @ArgumentsSource(EmployeesArgumentsProvider.class)
     public void getEachCounterOfOwnGroupAndValidateResponseTest(GroupCounterType ContentType) {
         log.info("Получаем показатель собственной группы");
