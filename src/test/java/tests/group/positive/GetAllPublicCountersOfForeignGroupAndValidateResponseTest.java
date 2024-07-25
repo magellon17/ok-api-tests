@@ -54,7 +54,7 @@ public class GetAllPublicCountersOfForeignGroupAndValidateResponseTest extends A
 
         log.info("Проверяем, что тело ответа содержит каждый запрошенный счетчик");
         assertTrue(Arrays.stream(
-                ALL_PUBLIC_GROUP_COUNTERS.split(", "))
+                        ALL_PUBLIC_GROUP_COUNTERS.split(", "))
                 .allMatch(counter -> groupCounters.containsKey(counter.toLowerCase())));
     }
 }
