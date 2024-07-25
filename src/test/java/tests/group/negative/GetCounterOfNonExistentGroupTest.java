@@ -21,9 +21,9 @@ import static utils.Specifications.responseSpecOK200;
 /**
  * Тест, который проверяет получение NOT_FOUND ошибки при попытке получить счетчика несуществующей группы
  */
-public class GetCounterOfNonExistentGroupAndValidateErrorTest extends ApiTest {
+public class GetCounterOfNonExistentGroupTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetCounterOfNonExistentGroupAndValidateErrorTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetCounterOfNonExistentGroupTest.class);
 
     // Несуществующий ID несуществующей группы
     private static final String NON_EXISTENT_GROUP_ID = "70000006977222";

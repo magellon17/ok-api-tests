@@ -26,9 +26,9 @@ import static utils.Specifications.responseSpecOK200;
 /**
  * Тест, который получает каждый счетчик собственной группы и проверяет, что получен только он
  */
-public class GetEachCounterOfOwnGroupAndValidateResponseTest extends ApiTest {
+public class GetEachCounterOfOwnGroupTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetEachCounterOfOwnGroupAndValidateResponseTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetEachCounterOfOwnGroupTest.class);
 
     private static final String OWN_GROUP_ID = "70000006977481";
 

@@ -21,9 +21,9 @@ import static utils.Specifications.responseSpecOK200;
 /**
  * Тест, который проверяет получение всех публичных счетчиков чужой группы
  */
-public class GetAllPublicCountersOfForeignGroupAndValidateResponseTest extends ApiTest {
+public class GetAllPublicCountersOfForeignGroupTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetAllPublicCountersOfForeignGroupAndValidateResponseTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetAllPublicCountersOfForeignGroupTest.class);
 
     private static final String FOREIGN_GROUP_ID = "54051835543681";
 

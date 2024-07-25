@@ -21,9 +21,9 @@ import static utils.Specifications.responseSpecOK200;
 /**
  * Тест, который проверяет получение GROUP_RESTRICTION ошибки при попытке получить счетчик чужой приватной группы
  */
-public class GetCounterOfForeignPrivateGroupAndValidateErrorTest extends ApiTest {
+public class GetCounterOfForeignPrivateGroupTest extends ApiTest {
 
-    private static final Logger log = LoggerFactory.getLogger(GetCounterOfForeignPrivateGroupAndValidateErrorTest.class);
+    private static final Logger log = LoggerFactory.getLogger(GetCounterOfForeignPrivateGroupTest.class);
 
     // ID чужой приватной группы
     private static final String FOREIGN_PRIVATE_GROUP_ID = "70000007250857";
