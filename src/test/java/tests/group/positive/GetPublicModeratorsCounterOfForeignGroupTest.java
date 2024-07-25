@@ -1,4 +1,4 @@
-package tests.group.negative;
+package tests.group.positive;
 
 import models.GroupCounterType;
 import org.junit.jupiter.api.DisplayName;
@@ -13,7 +13,6 @@ import utils.GroupMethodsUri;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;

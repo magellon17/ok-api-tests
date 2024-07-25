@@ -24,7 +24,7 @@ import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
 /**
- * Тест, который получает определенный счетчик собственной группы и проверяет, что получен только он
+ * Тест, который получает каждый счетчик собственной группы и проверяет, что получен только он
  */
 public class GetEachCounterOfOwnGroupAndValidateResponseTest extends ApiTest {
 
@@ -34,7 +34,7 @@ public class GetEachCounterOfOwnGroupAndValidateResponseTest extends ApiTest {
 
     @Tag("group")
     @Tag("positive")
-    @DisplayName("Тест, который получает определенный счетчик собственной группы и проверяет, что получен только он")
+    @DisplayName("Тест, который получает каждый счетчик собственной группы и проверяет, что получен только он")
     @ParameterizedTest(name = "Counter: {0}")
     @ArgumentsSource(EmployeesArgumentsProvider.class)
     public void getEachCounterOfOwnGroupAndValidateResponseTest(GroupCounterType ContentType) {

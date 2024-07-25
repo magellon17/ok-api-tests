@@ -19,7 +19,7 @@ import static utils.Specifications.requestSpec;
 import static utils.Specifications.responseSpecOK200;
 
 /**
- * Тест, который проверяет получение NOT_FOUND ошибки при получении счетчика несуществующей группы
+ * Тест, который проверяет получение NOT_FOUND ошибки при попытке получить счетчика несуществующей группы
  */
 public class GetCounterOfNonExistentGroupAndValidateErrorTest extends ApiTest {
 
@@ -31,7 +31,7 @@ public class GetCounterOfNonExistentGroupAndValidateErrorTest extends ApiTest {
     @Test
     @Tag("group")
     @Tag("negative")
-    @DisplayName("Тест, который проверяет получение NOT_FOUND ошибки при получении счетчика несуществующей группы")
+    @DisplayName("Тест, который проверяет получение NOT_FOUND ошибки при попытке получить счетчика несуществующей группы")
     public void getCounterOfNonExistentGroupAndValidateErrorTest() {
         log.info("Получаем показатели несуществующей группы");
         ResponseError error = given()
