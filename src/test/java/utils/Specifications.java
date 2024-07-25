@@ -19,16 +19,4 @@ public class Specifications {
                 .expectStatusCode(200)
                 .build();
     }
-
-    public static ResponseSpecification responseSpecOK201() {
-        return new ResponseSpecBuilder()
-                .expectStatusCode(201)
-                .build();
-    }
-
-    public static ResponseSpecification responseSpecError404() {
-        return new ResponseSpecBuilder()
-                .expectStatusCode(404)
-                .build();
-    }
 }
