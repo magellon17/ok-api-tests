@@ -22,6 +22,8 @@ dependencies {
     testCompileOnly ("org.projectlombok:lombok:1.18.32")
     testAnnotationProcessor ("org.projectlombok:lombok:1.18.32")
 
+    testImplementation("io.qameta.allure:allure-junit5:2.29.0")
+
     testImplementation("org.assertj:assertj-core:3.26.0")
 
     testImplementation("io.rest-assured:json-schema-validator:5.4.0")
