@@ -1,4 +1,4 @@
-package tests.group.negative;
+package tests.negative;
 
 import models.ErrorCodes;
 import models.ErrorMessages;

@@ -1,4 +1,4 @@
-package tests.group.contract;
+package tests.contract;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;

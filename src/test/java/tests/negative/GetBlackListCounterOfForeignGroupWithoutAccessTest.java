@@ -1,4 +1,4 @@
-package tests.group.negative;
+package tests.negative;
 
 import models.GroupCounterType;
 import org.junit.jupiter.api.DisplayName;
