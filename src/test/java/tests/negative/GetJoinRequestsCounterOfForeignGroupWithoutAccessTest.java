@@ -16,6 +16,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.GROUP_WITH_PRIVATE_JOIN_REQUESTS_COUNTER;
 
 /**
  * Тест, который проверяет неполучение счетчика join_requests при отсутствии прав админа
@@ -23,9 +24,6 @@ import static specifications.ResponseSpecProvider.successJsonResponse;
 public class GetJoinRequestsCounterOfForeignGroupWithoutAccessTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetJoinRequestsCounterOfForeignGroupWithoutAccessTest.class);
-
-    // ID группы, у которой скрыт счетчик join_requests
-    private static final String GROUP_WITH_PRIVATE_JOIN_REQUESTS_COUNTER = "54051835543681";
 
     @Test
     @Tag("group")

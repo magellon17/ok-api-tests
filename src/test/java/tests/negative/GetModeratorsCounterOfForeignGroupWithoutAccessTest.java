@@ -16,6 +16,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.GROUP_WITH_PRIVATE_MODERATORS_COUNTER;
 
 /**
  * Тест, который проверяет неполучение счетчика moderators при отсутствии прав админа
@@ -23,9 +24,6 @@ import static specifications.ResponseSpecProvider.successJsonResponse;
 public class GetModeratorsCounterOfForeignGroupWithoutAccessTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetModeratorsCounterOfForeignGroupWithoutAccessTest.class);
-
-    // ID группы, у которой скрыт счетчик moderators
-    private static final String GROUP_WITH_PRIVATE_MODERATORS_COUNTER = "70000007220905";
 
     @Test
     @Tag("group")

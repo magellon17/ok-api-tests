@@ -17,6 +17,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.OWN_GROUP_ID;
 
 /**
  * Тест, который проверяет получение всех счетчиков своей группы
@@ -25,9 +26,6 @@ public class GetAllCountersOfOwnGroupTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetAllCountersOfOwnGroupTest.class);
 
-    private static final String OWN_GROUP_ID = "70000006977481";
-
-    // Ничего лучше, чем записать все в строку пока не придумал
     private static final String ALL_GROUP_COUNTERS
             = "VIDEOS, BLACK_LIST, MAYBE, JOIN_REQUESTS, MODERATORS, MEMBERS, PHOTOS, PHOTO_ALBUMS, THEMES, LINKS, PRESENTS";
 

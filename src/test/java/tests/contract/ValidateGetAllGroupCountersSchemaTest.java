@@ -13,6 +13,7 @@ import utils.GroupMethodsUri;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.OWN_GROUP_ID;
 
 /**
  * Тест, который проводит валидацию ответа со всеми возможными счетчиками
@@ -20,9 +21,6 @@ import static specifications.ResponseSpecProvider.successJsonResponse;
 public class ValidateGetAllGroupCountersSchemaTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(ValidateGetAllGroupCountersSchemaTest.class);
-
-    // ID собственной группы
-    private static final String OWN_GROUP_ID = "70000006977481";
 
     private static final String ALL_GROUP_COUNTERS
             = "VIDEOS, BLACK_LIST, MAYBE, JOIN_REQUESTS, MODERATORS, MEMBERS, PHOTOS, PHOTO_ALBUMS, THEMES, LINKS, PRESENTS";

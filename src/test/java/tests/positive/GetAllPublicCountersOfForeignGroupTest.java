@@ -17,6 +17,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.FOREIGN_GROUP_ID;
 
 /**
  * Тест, который проверяет получение всех публичных счетчиков чужой группы
@@ -25,9 +26,7 @@ public class GetAllPublicCountersOfForeignGroupTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetAllPublicCountersOfForeignGroupTest.class);
 
-    private static final String FOREIGN_GROUP_ID = "54051835543681";
-
-    private static final String ALL_PUBLIC_GROUP_COUNTERS
+    private static final String ALL_PUBLIC_GROUP_COUNTERS_OF_FOREIGN_GROUP
             = "MEMBERS, PHOTOS, PHOTO_ALBUMS, THEMES, LINKS, PRESENTS";
 
     @Test
@@ -38,7 +37,7 @@ public class GetAllPublicCountersOfForeignGroupTest extends ApiTest {
         log.info("Получаем показатели группы");
         Map<String, Object> groupCounters = given()
                 .spec(RequestSpecProvider.BASE_SPEC)
-                .pathParam("counterTypes", ALL_PUBLIC_GROUP_COUNTERS)
+                .pathParam("counterTypes", ALL_PUBLIC_GROUP_COUNTERS_OF_FOREIGN_GROUP)
                 .pathParam("group_id", FOREIGN_GROUP_ID)
                 .pathParam("method", GroupMethodsUri.getGroupCounters)
                 .get(Endpoints.getGroupCounters)
@@ -51,7 +50,7 @@ public class GetAllPublicCountersOfForeignGroupTest extends ApiTest {
 
         log.info("Проверяем, что тело ответа содержит каждый запрошенный счетчик");
         assertTrue(Arrays.stream(
-                        ALL_PUBLIC_GROUP_COUNTERS.split(", "))
+                        ALL_PUBLIC_GROUP_COUNTERS_OF_FOREIGN_GROUP.split(", "))
                 .allMatch(counter -> groupCounters.containsKey(counter.toLowerCase())));
     }
 }

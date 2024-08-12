@@ -17,6 +17,7 @@ import utils.GroupMethodsUri;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.FOREIGN_PRIVATE_GROUP_ID;
 
 /**
  * Тест, который проверяет получение GROUP_RESTRICTION ошибки при попытке получить счетчик чужой приватной группы
@@ -24,9 +25,6 @@ import static specifications.ResponseSpecProvider.successJsonResponse;
 public class GetCounterOfForeignPrivateGroupTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetCounterOfForeignPrivateGroupTest.class);
-
-    // ID чужой приватной группы
-    private static final String FOREIGN_PRIVATE_GROUP_ID = "70000007250857";
 
     @Test
     @Tag("group")

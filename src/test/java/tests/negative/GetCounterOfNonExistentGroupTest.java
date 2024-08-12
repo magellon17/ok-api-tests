@@ -17,6 +17,7 @@ import utils.GroupMethodsUri;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.NON_EXISTENT_GROUP_ID;
 
 /**
  * Тест, который проверяет получение NOT_FOUND ошибки при попытке получить счетчика несуществующей группы
@@ -24,9 +25,6 @@ import static specifications.ResponseSpecProvider.successJsonResponse;
 public class GetCounterOfNonExistentGroupTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetCounterOfNonExistentGroupTest.class);
-
-    // Несуществующий ID несуществующей группы
-    private static final String NON_EXISTENT_GROUP_ID = "70000006977222";
 
     @Test
     @Tag("group")

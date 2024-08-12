@@ -16,6 +16,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.GROUP_WITH_PRIVATE_BLACKLIST_COUNTER;
 
 /**
  * Тест, который проверяет неполучение счетчика black_list при отсутствии прав админа
@@ -23,9 +24,6 @@ import static specifications.ResponseSpecProvider.successJsonResponse;
 public class GetBlackListCounterOfForeignGroupWithoutAccessTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetBlackListCounterOfForeignGroupWithoutAccessTest.class);
-
-    // ID группы, у которой скрыт счетчик black_list
-    private static final String GROUP_WITH_PRIVATE_BLACKLIST_COUNTER = "54051835543681";
 
     @Test
     @Tag("group")

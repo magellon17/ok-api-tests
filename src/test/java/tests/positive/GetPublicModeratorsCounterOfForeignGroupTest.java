@@ -16,6 +16,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.FOREIGN_GROUP_WITH_PUBLIC_MODERATORS_COUNTER;
 
 /**
  * Тест, который проверяет получение публично открытого счетчика moderators чужой группы
@@ -23,9 +24,6 @@ import static specifications.ResponseSpecProvider.successJsonResponse;
 public class GetPublicModeratorsCounterOfForeignGroupTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetPublicModeratorsCounterOfForeignGroupTest.class);
-
-    // ID группы, у которой открыт счетчик moderators
-    private static final String GROUP_WITH_PUBLIC_MODERATORS_COUNTER = "70000007221417";
 
     @Test
     @Tag("group")
@@ -36,7 +34,7 @@ public class GetPublicModeratorsCounterOfForeignGroupTest extends ApiTest {
         Map<String, Object> groupCounters = given()
                 .spec(RequestSpecProvider.BASE_SPEC)
                 .pathParam("counterTypes", GroupCounterType.MODERATORS)
-                .pathParam("group_id", GROUP_WITH_PUBLIC_MODERATORS_COUNTER)
+                .pathParam("group_id", FOREIGN_GROUP_WITH_PUBLIC_MODERATORS_COUNTER)
                 .pathParam("method", GroupMethodsUri.getGroupCounters)
                 .get(Endpoints.getGroupCounters)
                 .then()

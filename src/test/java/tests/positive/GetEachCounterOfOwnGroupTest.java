@@ -22,6 +22,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.TestGroupsProvider.OWN_GROUP_ID;
 
 /**
  * Тест, который получает каждый счетчик собственной группы и проверяет, что получен только он
@@ -29,8 +30,6 @@ import static specifications.ResponseSpecProvider.successJsonResponse;
 public class GetEachCounterOfOwnGroupTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetEachCounterOfOwnGroupTest.class);
-
-    private static final String OWN_GROUP_ID = "70000006977481";
 
     @Tag("group")
     @Tag("positive")

@@ -3,7 +3,7 @@ package specifications;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
-import static utils.TestData.*;
+import static utils.BaseTestData.*;
 
 public class RequestSpecProvider {
     public static final RequestSpecification BASE_SPEC = new RequestSpecBuilder()
