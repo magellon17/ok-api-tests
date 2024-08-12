@@ -17,6 +17,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.GroupCountersProvider.ALL_PUBLIC_GROUP_COUNTERS_OF_FOREIGN_GROUP;
 import static utils.TestGroupsProvider.FOREIGN_GROUP_ID;
 
 /**
@@ -25,9 +26,6 @@ import static utils.TestGroupsProvider.FOREIGN_GROUP_ID;
 public class GetAllPublicCountersOfForeignGroupTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetAllPublicCountersOfForeignGroupTest.class);
-
-    private static final String ALL_PUBLIC_GROUP_COUNTERS_OF_FOREIGN_GROUP
-            = "MEMBERS, PHOTOS, PHOTO_ALBUMS, THEMES, LINKS, PRESENTS";
 
     @Test
     @Tag("group")

@@ -13,6 +13,7 @@ import utils.GroupMethodsUri;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.GroupCountersProvider.ALL_GROUP_COUNTERS_OF_OWN_GROUP;
 import static utils.TestGroupsProvider.OWN_GROUP_ID;
 
 /**
@@ -22,9 +23,6 @@ public class ValidateGetAllGroupCountersSchemaTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(ValidateGetAllGroupCountersSchemaTest.class);
 
-    private static final String ALL_GROUP_COUNTERS
-            = "VIDEOS, BLACK_LIST, MAYBE, JOIN_REQUESTS, MODERATORS, MEMBERS, PHOTOS, PHOTO_ALBUMS, THEMES, LINKS, PRESENTS";
-
     @Test
     @Tag("group")
     @Tag("contract")
@@ -33,7 +31,7 @@ public class ValidateGetAllGroupCountersSchemaTest extends ApiTest {
         log.info("Получаем все счетчики и производим валидацию схемы");
         given()
                 .spec(RequestSpecProvider.BASE_SPEC)
-                .pathParam("counterTypes", ALL_GROUP_COUNTERS)
+                .pathParam("counterTypes", ALL_GROUP_COUNTERS_OF_OWN_GROUP)
                 .pathParam("group_id", OWN_GROUP_ID)
                 .pathParam("method", GroupMethodsUri.getGroupCounters)
                 .get(Endpoints.getGroupCounters)

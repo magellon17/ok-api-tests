@@ -17,6 +17,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specifications.ResponseSpecProvider.successJsonResponse;
+import static utils.GroupCountersProvider.ALL_GROUP_COUNTERS_OF_OWN_GROUP;
 import static utils.TestGroupsProvider.OWN_GROUP_ID;
 
 /**
@@ -26,9 +27,6 @@ public class GetAllCountersOfOwnGroupTest extends ApiTest {
 
     private static final Logger log = LoggerFactory.getLogger(GetAllCountersOfOwnGroupTest.class);
 
-    private static final String ALL_GROUP_COUNTERS
-            = "VIDEOS, BLACK_LIST, MAYBE, JOIN_REQUESTS, MODERATORS, MEMBERS, PHOTOS, PHOTO_ALBUMS, THEMES, LINKS, PRESENTS";
-
     @Test
     @Tag("group")
     @Tag("positive")
@@ -37,7 +35,7 @@ public class GetAllCountersOfOwnGroupTest extends ApiTest {
         log.info("Получаем показатели группы");
         Map<String, Object> groupCounters = given()
                 .spec(RequestSpecProvider.BASE_SPEC)
-                .pathParam("counterTypes", ALL_GROUP_COUNTERS)
+                .pathParam("counterTypes", ALL_GROUP_COUNTERS_OF_OWN_GROUP)
                 .pathParam("group_id", OWN_GROUP_ID)
                 .pathParam("method", GroupMethodsUri.getGroupCounters)
                 .get(Endpoints.getGroupCounters)
@@ -49,7 +47,7 @@ public class GetAllCountersOfOwnGroupTest extends ApiTest {
         assertEquals(11, groupCounters.size());
         log.info("Проверяем, что тело ответа содержит каждый запрошенный счетчик");
         assertTrue(Arrays.stream(
-                        ALL_GROUP_COUNTERS.split(", "))
+                        ALL_GROUP_COUNTERS_OF_OWN_GROUP.split(", "))
                 .allMatch(counter -> groupCounters.containsKey(counter.toLowerCase())));
     }
 }
