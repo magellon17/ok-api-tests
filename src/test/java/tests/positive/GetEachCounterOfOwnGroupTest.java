@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.ArgumentsProvider;
 import org.junit.jupiter.params.provider.ArgumentsSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import specifications.RequestSpecProvider;
 import tests.ApiTest;
 import utils.Endpoints;
 import utils.GroupMethodsUri;
@@ -20,8 +21,7 @@ import java.util.stream.Stream;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static utils.Specifications.requestSpec;
-import static utils.Specifications.responseSpecOK200;
+import static specifications.ResponseSpecProvider.successJsonResponse;
 
 /**
  * Тест, который получает каждый счетчик собственной группы и проверяет, что получен только он
@@ -40,17 +40,13 @@ public class GetEachCounterOfOwnGroupTest extends ApiTest {
     public void getEachCounterOfOwnGroupAndValidateResponseTest(GroupCounterType ContentType) {
         log.info("Получаем показатель собственной группы");
         Map<String, Object> groupCounters = given()
-                .spec(requestSpec(BASE_URL))
-                .pathParam("application_key", APPLICATION_KEY)
+                .spec(RequestSpecProvider.BASE_SPEC)
                 .pathParam("counterTypes", ContentType)
-                .pathParam("format", "json")
                 .pathParam("group_id", OWN_GROUP_ID)
                 .pathParam("method", GroupMethodsUri.getGroupCounters)
-                .pathParam("sig", SIG)
-                .pathParam("access_token", ACCESS_TOKEN)
                 .get(Endpoints.getGroupCounters)
                 .then()
-                .spec(responseSpecOK200())
+                .spec(successJsonResponse())
                 .extract().response().jsonPath().getMap("counters");
         log.info("Проверяем, что тело ответа содержит требуемый элемент");
         assertTrue(groupCounters.containsKey(ContentType.toString().toLowerCase()));
