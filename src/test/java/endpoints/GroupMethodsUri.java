@@ -1,4 +1,4 @@
-package utils;
+package endpoints;
 
 public class GroupMethodsUri {
     /**

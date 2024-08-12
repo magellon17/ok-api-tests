@@ -1,4 +1,4 @@
-package utils;
+package testData;
 
 public class BaseTestData {
     public static final String BASE_URL = "https://api.ok.ru";

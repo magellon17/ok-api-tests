@@ -7,8 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import specifications.RequestSpecProvider;
 import tests.ApiTest;
-import utils.Endpoints;
-import utils.GroupMethodsUri;
+import endpoints.Endpoints;
+import endpoints.GroupMethodsUri;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -17,8 +17,8 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specifications.ResponseSpecProvider.successJsonResponse;
-import static utils.GroupCountersProvider.ALL_PUBLIC_GROUP_COUNTERS_OF_FOREIGN_GROUP;
-import static utils.TestGroupsProvider.FOREIGN_GROUP_ID;
+import static testData.GroupCountersProvider.ALL_PUBLIC_GROUP_COUNTERS_OF_FOREIGN_GROUP;
+import static testData.TestGroupsProvider.FOREIGN_GROUP_ID;
 
 /**
  * Тест, который проверяет получение всех публичных счетчиков чужой группы

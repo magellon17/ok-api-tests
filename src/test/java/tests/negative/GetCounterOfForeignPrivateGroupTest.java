@@ -11,13 +11,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import specifications.RequestSpecProvider;
 import tests.ApiTest;
-import utils.Endpoints;
-import utils.GroupMethodsUri;
+import endpoints.Endpoints;
+import endpoints.GroupMethodsUri;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static specifications.ResponseSpecProvider.successJsonResponse;
-import static utils.TestGroupsProvider.FOREIGN_PRIVATE_GROUP_ID;
+import static testData.TestGroupsProvider.FOREIGN_PRIVATE_GROUP_ID;
 
 /**
  * Тест, который проверяет получение GROUP_RESTRICTION ошибки при попытке получить счетчик чужой приватной группы

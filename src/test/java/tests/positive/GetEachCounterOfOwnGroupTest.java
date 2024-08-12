@@ -12,8 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import specifications.RequestSpecProvider;
 import tests.ApiTest;
-import utils.Endpoints;
-import utils.GroupMethodsUri;
+import endpoints.Endpoints;
+import endpoints.GroupMethodsUri;
 
 import java.util.Map;
 import java.util.stream.Stream;
@@ -22,7 +22,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static specifications.ResponseSpecProvider.successJsonResponse;
-import static utils.TestGroupsProvider.OWN_GROUP_ID;
+import static testData.TestGroupsProvider.OWN_GROUP_ID;
 
 /**
  * Тест, который получает каждый счетчик собственной группы и проверяет, что получен только он

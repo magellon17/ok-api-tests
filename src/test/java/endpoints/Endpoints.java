@@ -1,4 +1,4 @@
-package utils;
+package endpoints;
 
 public class Endpoints {
     public static final String getGroupCounters

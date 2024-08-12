@@ -9,15 +9,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import specifications.RequestSpecProvider;
 import tests.ApiTest;
-import utils.Endpoints;
-import utils.GroupMethodsUri;
+import endpoints.Endpoints;
+import endpoints.GroupMethodsUri;
 
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static specifications.ResponseSpecProvider.successJsonResponse;
-import static utils.TestGroupsProvider.GROUP_WITH_PRIVATE_VIDEOS_COUNTER;
+import static testData.TestGroupsProvider.GROUP_WITH_PRIVATE_VIDEOS_COUNTER;
 
 /**
  * Тест, который проверяет неполучение счетчика videos, когда он скрыт в настройках группы
